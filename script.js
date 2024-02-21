@@ -19,18 +19,18 @@ function addEmployee(event) {
 //that function will remove a parent element, possibly grandparent
     employeeTable.innerHTML += `
         <tr>
-        <td>`${firstName}`</td>
-        <td>`${lastName}`</td>
-        <td>`${idNumber}`</td>
-        <td>`${jobTitle}`</td>
-        <td>`${annualSalary}`</td>
-        <td><button onClick="deleteEmployee">Delete</button></td>
+        <td>${firstName}</td>
+        <td>${lastName}</td>
+        <td>${idNumber}</td>
+        <td>${jobTitle}</td>
+        <td>${annualSalary}</td>
+        <td><button onClick="deleteEmployee(event)">Delete</button></td>
         </tr>
         `;
 }
 
 function deleteEmployee(event) {
-    event.target.parentElement.remove();
+    event.target.parentElement.parentElement.remove();
 }
 
 
