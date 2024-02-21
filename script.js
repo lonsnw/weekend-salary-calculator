@@ -13,15 +13,25 @@ function addEmployee(event) {
     let idNumber = document.querySelector('#idInput').value;
     let jobTitle = document.querySelector('#titleInput').value;
     let annualSalary = document.querySelector('#annualSalaryInput').value;
+    let employeeTable = document.querySelector('#employee-data');
 //add in the table stuff here using the variables i just set;
 //include a delete button that runs a separate function
 //that function will remove a parent element, possibly grandparent
-
-
-
+    employeeTable.innerHTML += `
+        <tr>
+        <td>`${firstName}`</td>
+        <td>`${lastName}`</td>
+        <td>`${idNumber}`</td>
+        <td>`${jobTitle}`</td>
+        <td>`${annualSalary}`</td>
+        <td><button onClick="deleteEmployee">Delete</button></td>
+        </tr>
+        `;
 }
 
-
+function deleteEmployee(event) {
+    event.target.parentElement.remove();
+}
 
 
 //Create a submit button:
