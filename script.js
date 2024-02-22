@@ -11,6 +11,7 @@
 let salaries = [];
 
 function calculateCost() {
+    console.log('in calculate cost function');
 //creating separate function so i can run it every time something is added or removed
     let annualCost = 0;
 //creating a function that calculates the annual cost and then establishing monthlyCost as 1/12th of that
@@ -23,8 +24,10 @@ function calculateCost() {
     console.log((new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(annualCost)));
 //monthlyCost has to follow the annualCost calculation or it won't actually calculate anything correctly
     let monthlyCost = (annualCost / 12);
+    console.log(monthlyCost);
 //use innerHTML to get the monthlyCost into the footer
     let monthlyTotal = document.querySelector('#monthly-total');
+    console.log(monthlyTotal)
     monthlyTotal.innerHTML = `${(new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(monthlyCost))}`
     let budgetIndicator = document.querySelector('#budget-indicator');
     if (monthlyCost > 20000) {
@@ -33,9 +36,11 @@ function calculateCost() {
     else {
         budgetIndicator.classList.remove("over-budget")
     }
+    console.log(budgetIndicator);
 }
 
 function addEmployee(event) {
+    console.log('in add employee function');
     event.preventDefault();
     let firstName = document.querySelector('#firstNameInput').value;
     let lastName = document.querySelector('#lastNameInput').value;
@@ -61,8 +66,8 @@ function addEmployee(event) {
         </tr>
         `;
     calculateCost();
-//this is not working; console tells me "Uncaught TypeError: Cannot read properties of null (reading 'reset')"
     function clearInputs(){
+        console.log('in clear inputs function');
         document.querySelector('#firstNameInput').value = '';
         document.querySelector('#lastNameInput').value = '';
         document.querySelector('#idInput').value = '';
@@ -73,8 +78,18 @@ function addEmployee(event) {
 }
 
 function deleteEmployee(event) {
-//the splice method works here, but only once.  why?  works with the calculation and the color change in the footer
-    salaries.splice((salaries.indexOf(event.target)), 1, 0);
+    console.log('in delete employee function');
+//my original splice method worked here, but only once.
+    //salaries.splice((salaries.indexOf(event.target)), 1, 0)
+//went to office hours with carlos and learned about the arguments and why this wasn't working
+//we have the first as the start argument, 
+//the second is how many to delete, anything after is what you want to add.
+//i didn't need the third argument 0 because i didn't want to add.
+    console.log(salaries.indexOf(event.target));
+//correcting this solved the issue
+    salaries.splice((salaries.indexOf(event.target)), 1);
+    console.log(salaries.indexOf(event.target));
+    console.log(event.target.parentElement.parentElement);
     event.target.parentElement.parentElement.remove();
     calculateCost();
 }

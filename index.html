@@ -11,7 +11,8 @@
   </header>
   <main>
     <h2>Add Employee</h2>
-    <form id="employee-info">
+<!-- added a form wrapper when i was trying to figure out clearing the input fields, seems i don't need it -->
+    <!-- <form id="employee-info"> -->
     <label for="firstNameInput">First Name</label>
     <input type="text" id="firstNameInput" data-testid="firstNameInput"/>
     <label for="lastNameInput">Last Name</label>
@@ -23,7 +24,7 @@
     <label for="annualSalaryInput">Annual Salary</label>
     <input type="number" id="annualSalaryInput" data-testid="annualSalaryInput"/>
     <button onClick="addEmployee(event)" data-testid="submitButton">Submit</button>
-    </form>
+    <!-- </form> -->
     <br />
     <h2>Employees</h2>
     <br />
