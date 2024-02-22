@@ -89,3 +89,7 @@ footer {
 footer p {
     font-weight: 600;
 }
+
+.overspent {
+    background-color: #bf0f24;
+}

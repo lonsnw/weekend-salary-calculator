@@ -26,6 +26,13 @@ function calculateCost() {
 //use innerHTML to get the monthlyCost into the footer
     let monthlyTotal = document.querySelector('#monthly-total');
     monthlyTotal.innerHTML = `${(new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(monthlyCost))}`
+    let budgetIndicator = document.querySelector('#budget-indicator');
+    if (monthlyCost > 20000) {
+        budgetIndicator.classList.add("overspent")
+    }
+    else {
+        console.log(`we are operating within budget.`)
+    }
 }
 
 function addEmployee(event) {
@@ -53,6 +60,15 @@ function addEmployee(event) {
         </tr>
         `;
     calculateCost();
+//this is not working; console tells me "Uncaught TypeError: Cannot read properties of null (reading 'reset')"
+    function clearInputs(){
+        document.getElementById('#firstNameInput').reset();
+        document.getElementById('#lastNameInput').reset();
+        document.getElementById('#idInput').reset();
+        document.getElementById('#titleInput').reset();
+        document.getElementById('#annualSalaryInput').reset();
+    }
+    clearInputs();
 }
 
 function deleteEmployee(event) {
@@ -71,13 +87,14 @@ function deleteEmployee(event) {
 //The submit button should:
 //    * add the inputs to a table that looks like this: https://github.com/lonsnw/weekend-salary-calculator/raw/main/salary-calc-wireframe.png
 //  ✓       * note that every row has a delete button that clears the employee from the dom
-//         * STRETCH GOAL: removing an employee recalculates the monthly cost to pay the employee
+//  ✓       * STRETCH GOAL: removing an employee recalculates the monthly cost to pay the employee
+//              i got this... as long as you only want to remove one employee at a time, i guess.
 //  ✓  * calculates the monthly costs to pay the employees
 //         * note that this will appear in the footer, not in the table
 //    * clear the input fields
 
 //Other tasks: 
-//    * apply a CSS class "over-budget" to the footer when the monthly costs to pay the employees exceeds $20k 
+//  ✓  * apply a CSS class "over-budget" to the footer when the monthly costs to pay the employees exceeds $20k 
 //    * update the CSS to fit with the theme of the project
 
 
