@@ -31,11 +31,12 @@ function calculateCost() {
         budgetIndicator.classList.add("over-budget")
     }
     else {
-        console.log(`we are operating within budget.`)
+        budgetIndicator.classList.remove("over-budget")
     }
 }
 
 function addEmployee(event) {
+    event.preventDefault();
     let firstName = document.querySelector('#firstNameInput').value;
     let lastName = document.querySelector('#lastNameInput').value;
     let idNumber = document.querySelector('#idInput').value;
@@ -72,7 +73,7 @@ function addEmployee(event) {
 }
 
 function deleteEmployee(event) {
-//the splice method works here, but only once.  why?
+//the splice method works here, but only once.  why?  works with the calculation and the color change in the footer
     salaries.splice((salaries.indexOf(event.target)), 1, 0);
     event.target.parentElement.parentElement.remove();
     calculateCost();
