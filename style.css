@@ -1,0 +1,90 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    text-align: center;
+    background-color: #7a1871;
+    color: white;
+    padding: 12px 32px;
+    font-weight: 500;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+/* style by id using # */
+#content {
+    max-width: 700px;
+    margin: 0 auto;
+    /* Center horizontally */
+}
+
+#employees {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#employees td,
+#employees th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#employees tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#employees tr:hover {
+    background-color: #ddd;
+}
+
+#employees th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #7a1871;
+    color: white;
+}
+
+input[type=text],
+input[type=number],
+select {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: grid;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    background-color: #7a1871;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: rgb(0, 99, 99);
+}
+
+div {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.employee-data {
+    margin-bottom: 20px;
+}
