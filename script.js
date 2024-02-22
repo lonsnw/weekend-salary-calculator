@@ -63,11 +63,11 @@ function addEmployee(event) {
     calculateCost();
 //this is not working; console tells me "Uncaught TypeError: Cannot read properties of null (reading 'reset')"
     function clearInputs(){
-        document.getElementById('#firstNameInput').reset();
-        document.getElementById('#lastNameInput').reset();
-        document.getElementById('#idInput').reset();
-        document.getElementById('#titleInput').reset();
-        document.getElementById('#annualSalaryInput').reset();
+        document.querySelector('#firstNameInput').value = '';
+        document.querySelector('#lastNameInput').value = '';
+        document.querySelector('#idInput').value = '';
+        document.querySelector('#titleInput').value = '';
+        document.querySelector('#annualSalaryInput').value = '';
     }
     clearInputs();
 }
@@ -92,7 +92,7 @@ function deleteEmployee(event) {
 //              i got this... as long as you only want to remove one employee at a time, i guess.
 //  ✓  * calculates the monthly costs to pay the employees
 //         * note that this will appear in the footer, not in the table
-//    * clear the input fields
+//  ✓  * clear the input fields
 
 //Other tasks: 
 //  ✓  * apply a CSS class "over-budget" to the footer when the monthly costs to pay the employees exceeds $20k 
