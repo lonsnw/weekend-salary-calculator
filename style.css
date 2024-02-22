@@ -14,14 +14,7 @@ header {
 }
 
 h1 {
-    font-weight: 300;
-}
-
-/* style by id using # */
-#content {
-    max-width: 700px;
-    margin: 0 auto;
-    /* Center horizontally */
+    font-weight: 600;
 }
 
 #employees {
@@ -40,14 +33,14 @@ h1 {
     background-color: #f2f2f2;
 }
 
-#employees tr:hover {
+/* #employees tr:hover {
     background-color: #ddd;
-}
+} */
 
 #employees th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
+    text-align: center;
     background-color: #7a1871;
     color: white;
 }
@@ -55,17 +48,16 @@ h1 {
 input[type=text],
 input[type=number],
 select {
-    width: 25%;
+    width: 35%;
     padding: 12px 20px;
     margin: 8px 0;
     display: grid;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    border: 1px solid #7a1871;
+    border-radius: 10px;
     box-sizing: border-box;
 }
 
 input[type=submit] {
-    width: 100%;
     background-color: #7a1871;
     color: white;
     padding: 14px 20px;
@@ -79,12 +71,21 @@ input[type=submit]:hover {
     background-color: rgb(0, 99, 99);
 }
 
-div {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
+main {
+    width: 85%;
+    margin: auto;
 }
 
-.employee-data {
-    margin-bottom: 20px;
+footer {
+    width: 85%;
+    margin: auto;
+    background-color: #7a1871;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid;
+}
+
+footer p {
+    font-weight: 600;
 }

@@ -53,8 +53,8 @@ function addEmployee(event) {
 
 function deleteEmployee(event) {
     event.target.parentElement.parentElement.remove();
-}
 
+}
 
 //Create a submit button:
 //  ✓  * submit button - 
