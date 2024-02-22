@@ -28,7 +28,7 @@ function calculateCost() {
     monthlyTotal.innerHTML = `${(new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(monthlyCost))}`
     let budgetIndicator = document.querySelector('#budget-indicator');
     if (monthlyCost > 20000) {
-        budgetIndicator.classList.add("overspent")
+        budgetIndicator.classList.add("over-budget")
     }
     else {
         console.log(`we are operating within budget.`)
