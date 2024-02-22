@@ -10,6 +10,24 @@
 //establishing salaries array outside of function so that it doesn't reset after each input
 let salaries = [];
 
+function calculateCost() {
+//creating separate function so i can run it every time something is added or removed
+    let annualCost = 0;
+//creating a function that calculates the annual cost and then establishing monthlyCost as 1/12th of that
+    for (let i = 0; i < salaries.length; i ++) {
+//this was treating the salaries as strings instead of numbers, so i added a type conversion
+//https://medium.com/@atuljha2402/understanding-javascript-type-coercion-type-conversion-a2ce84c00331#:~:text=Type%20coercion%20refers%20to%20the,complete%20the%20operation%20or%20comparison.
+//is there a better way to do this?
+        annualCost += Number(salaries[i]);
+    }
+    console.log((new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(annualCost)));
+//monthlyCost has to follow the annualCost calculation or it won't actually calculate anything correctly
+    let monthlyCost = (annualCost / 12);
+//use innerHTML to get the monthlyCost into the footer
+    let monthlyTotal = document.querySelector('#monthly-total');
+    monthlyTotal.innerHTML = `${(new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(monthlyCost))}`
+}
+
 function addEmployee(event) {
     let firstName = document.querySelector('#firstNameInput').value;
     let lastName = document.querySelector('#lastNameInput').value;
@@ -34,26 +52,14 @@ function addEmployee(event) {
         <td><button onClick="deleteEmployee(event)">Delete</button></td>
         </tr>
         `;
-//incorporate monthly cost calculation into this function so that it calculates every time something is added
-    let annualCost = 0;
-//creating a function that calculates the annual cost and then establishing monthlyCost as 1/12th of that
-    for (let i = 0; i < salaries.length; i ++) {
-//this was treating the salaries as strings instead of numbers, so i added a type conversion
-//https://medium.com/@atuljha2402/understanding-javascript-type-coercion-type-conversion-a2ce84c00331#:~:text=Type%20coercion%20refers%20to%20the,complete%20the%20operation%20or%20comparison.
-//is there a better way to do this?
-        annualCost += Number(salaries[i]);
-    }
-    console.log((new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(annualCost)));
-//monthlyCost has to follow the annualCost calculation or it won't actually calculate anything correctly
-    let monthlyCost = (annualCost / 12);
-//use innerHTML to get the monthlyCost into the footer
-    let monthlyTotal = document.querySelector('#monthly-total');
-    monthlyTotal.innerHTML = `${(new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(monthlyCost))}`
+    calculateCost();
 }
 
 function deleteEmployee(event) {
+//the splice method works here, but only once.  why?
+    salaries.splice((salaries.indexOf(event.target)), 1, 0);
     event.target.parentElement.parentElement.remove();
-
+    calculateCost();
 }
 
 //Create a submit button:
