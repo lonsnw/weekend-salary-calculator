@@ -104,7 +104,6 @@ function deleteEmployee(event) {
 //    * add the inputs to a table that looks like this: https://github.com/lonsnw/weekend-salary-calculator/raw/main/salary-calc-wireframe.png
 //  ✓       * note that every row has a delete button that clears the employee from the dom
 //  ✓       * STRETCH GOAL: removing an employee recalculates the monthly cost to pay the employee
-//              i got this... as long as you only want to remove one employee at a time, i guess.
 //  ✓  * calculates the monthly costs to pay the employees
 //         * note that this will appear in the footer, not in the table
 //  ✓  * clear the input fields
