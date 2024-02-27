@@ -10,9 +10,13 @@ This app is not currently deployed.
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+On budget example: 
+<image src=within-budget.png width=80%>
 
-### Prerequisites
+Over budget example: 
+<image src=over-budget.png width=80%>
+
+## Prerequisites
 
 - [Node.js](https://nodejs.org/en/)
 
